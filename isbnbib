@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+isbn="$1"
+
+curl "http://www.ottobib.com/isbn/${isbn}/bibtex" | perl -l -0777 -ne 'print $1 if /<textarea.*?>\s*(.*?)\s*<\/textarea/si'
+
